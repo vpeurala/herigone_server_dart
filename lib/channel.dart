@@ -26,7 +26,8 @@ class HerigoneServerDartChannel extends ApplicationChannel
     logger.onRecord.listen(
         (rec) => print("$rec ${rec.error ?? ""} ${rec.stackTrace ?? ""}"));
 
-    final config = HerigoneServerDartConfiguration(options.configurationFilePath);
+    final config =
+        HerigoneServerDartConfiguration(options.configurationFilePath);
 
     context = contextWithConnectionInfo(config.database);
 
@@ -114,7 +115,8 @@ class HerigoneServerDartChannel extends ApplicationChannel
 /// For more documentation on configuration files, see
 /// https://pub.dartlang.org/packages/safe_config.
 class HerigoneServerDartConfiguration extends Configuration {
-  HerigoneServerDartConfiguration(String fileName) : super.fromFile(File(fileName));
+  HerigoneServerDartConfiguration(String fileName)
+      : super.fromFile(File(fileName));
 
   DatabaseConfiguration database;
 }

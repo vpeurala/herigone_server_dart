@@ -20,7 +20,8 @@ export 'package:aqueduct/aqueduct.dart';
 ///           });
 ///         }
 ///
-class Harness extends TestHarness<HerigoneServerDartChannel> with TestHarnessAuthMixin<HerigoneServerDartChannel>, TestHarnessORMMixin {
+class Harness extends TestHarness<HerigoneServerDartChannel>
+    with TestHarnessAuthMixin<HerigoneServerDartChannel>, TestHarnessORMMixin {
   @override
   ManagedContext get context => channel.context;
 
