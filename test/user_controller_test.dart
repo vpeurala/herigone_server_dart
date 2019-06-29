@@ -29,11 +29,16 @@ Future main() async {
   });
 
   test("Can get user with valid credentials", () async {
-    final response = await agents[0].get("/users/1");
+    final response = await agents[1].get("/users/1");
     expect(
         response,
         hasResponse(200,
             body: partial({"username": "bob+0@stablekernel.com"})));
+  });
+
+  test("Getting user fails when id does not exist", () async {
+    final response = await agents[2].get("/users/7");
+    expect(response, hasResponse(404));
   });
 
   test("Updating user fails if not owner", () async {
