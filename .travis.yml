@@ -8,6 +8,12 @@ env:
   global:
     secure: ufu3/PWx4bRluDt1NGqLQ8DbaETYJtITM7mtRPUEx0wX79uyJRMr0qL6QFv10msUpwfC7PPgzDtHY5ZOBx9AlEvCRhl/9yZoRBUzQddv/3GEOdwZOLDpkrboshxSXxF9Dx9UEvaIZbMT3nCUdOjUtqkRu7eRyRkrZIj3valUpYq6UkQDwIkT2fCPXVlS/iBZ9ew7njq0XWbowbZXnrA+pJoJVDhCeT46U8qJkj9Snf4jUzHoE05JO60fj0j4O+wC8mgc4rSZMaJr7sloogZgqjmJtPyo9AdaquPf3NqRylA5o8lXJR/PY3ky5so4BzQiOm50o2Dlg5UF3fhyp3W0r4kNwTNy0N7/HaIjb/ppX5AiQGYTXCWYwl3ClxxGy8wvkDnxDjKB3Y1ghj+iU2JZF6VWf/fGnZlz7e54wGL3Umnt25sTR4UmmrAX2xMjU2Gcs1QJR9i8aAE81R9j4ZuVqiIK9jBW0g8oC/LFFXnKwpm0FcPZDYpELjUYWJI4SW8NdrT2YfQQ2Et26E/LuO+7LT/6YDCMJF+WMB6+qcK5OJj849B1oygQUYJsyOgwwnafROLjIXiTdOBiXFPGLyrDXbgMUfoCbxz8/FtI+KgK1ySRiFPbfw4HGLcmK31pq0wl7x8N0fkeoj2ME3kt70zs49Qp/LJZpyG+9IGdnf+gAfQ=
 sudo: required
+before_install:
+# Install lcov 1.13
+- wget http://downloads.sourceforge.net/ltp/lcov-1.13.tar.gz
+- tar -xvf lcov-1.13.tar.gz
+- cd lcov-1.13 && sudo make install
+- cd ..
 install:
 - gem install coveralls
 - gem install coveralls-lcov
