@@ -1,5 +1,5 @@
-import '../model/user.dart';
 import '../herigone_server_dart.dart';
+import '../model/user.dart';
 
 class RegisterController extends ResourceController {
   RegisterController(this.context, this.authServer);

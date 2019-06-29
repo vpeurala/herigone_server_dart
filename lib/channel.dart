@@ -1,9 +1,9 @@
 import 'controller/identity_controller.dart';
 import 'controller/register_controller.dart';
 import 'controller/user_controller.dart';
+import 'herigone_server_dart.dart';
 import 'model/user.dart';
 import 'utility/html_template.dart';
-import 'herigone_server_dart.dart';
 
 /// This type initializes an application.
 ///
