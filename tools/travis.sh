@@ -17,7 +17,7 @@ dartanalyzer $DARTANALYZER_FLAGS bin/ lib/ test/
 # Verify that dartfmt has been run.
 echo "Checking dartfmt..."
 if [[ $(dartfmt -n --set-exit-if-changed bin/ lib/ test/) ]]; then
-	echo "Failed dartfmt check: run dartfmt -w lib/ test/"
+	echo "Failed dartfmt check: run dartfmt -w bin/ lib/ test/"
 	exit 1
 fi
 
