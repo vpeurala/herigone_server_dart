@@ -1,5 +1,8 @@
 # herigone_server_dart
 
+[![Build Status](https://travis-ci.org/vpeurala/herigone_server_dart.svg?branch=master)](https://travis-ci.org/vpeurala/herigone_server_dart)
+[![Coverage Status](https://coveralls.io/repos/github/vpeurala/herigone_server_dart/badge.svg?branch=master)](https://coveralls.io/github/vpeurala/herigone_server_dart?branch=master)
+
 ## Database
 
 You will need a local database for testing, and another database for running the application locally. The behavior and configuration of these databases are documented here: http://aqueduct.io/docs/testing/mixins/.

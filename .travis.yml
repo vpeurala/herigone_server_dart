@@ -1,5 +1,12 @@
 language: dart
+dart:
+  - 2.4.0
+  - dev
+env:
+  - DARTANALYZER_FLAGS=--fatal-warnings
 sudo: required
+install:
+  - gem install coveralls-lcov
 addons:
   postgresql: "11"
 services:
@@ -8,9 +15,14 @@ services:
 before_script:
   - docker-compose up -d
   - pub get
-script: pub run test -j 1 -r expanded
+script: ./tools/travis.sh
+after_success:
+  - coveralls-lcov var/lcov.info
 after_script:
   - docker-compose down
 branches:
   only:
     - master
+cache:
+  directories:
+    - $HOME/.pub-cache
