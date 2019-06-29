@@ -7,9 +7,6 @@
 # Fast fail the script on failures.
 set -e
 
-# Run pub get to fetch packages.
-pub get
-
 # Verify that the libraries are error and warning-free.
 echo "Running dartanalyzer..."
 dartanalyzer $DARTANALYZER_FLAGS bin/ lib/ test/
@@ -34,17 +31,17 @@ if [ "$COVERALLS_TOKEN" ] && [ "$TRAVIS_DART_VERSION" = "dev" ]; then
   dart --disable-service-auth-codes \
     --enable-vm-service=$OBS_PORT \
     --pause-isolates-on-exit \
-    test/test_all.dart &
+    test/generated_runner.dart &
 
   # Run the coverage collector to generate the JSON coverage report.
-  dart bin/collect_coverage.dart \
+  pub global run coverage:collect_coverage \
     --port=$OBS_PORT \
     --out=var/coverage.json \
     --wait-paused \
     --resume-isolates
 
   echo "Generating LCOV report..."
-  dart bin/format_coverage.dart \
+  pub global run coverage:format_coverage \
     --lcov \
     --in=var/coverage.json \
     --out=var/lcov.info \

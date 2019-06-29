@@ -1,28 +1,33 @@
 language: dart
 dart:
-  - 2.4.0
-  - dev
+- 2.4.0
+- dev
 env:
+  matrix:
   - DARTANALYZER_FLAGS=--fatal-warnings
+  global:
+    secure: ufu3/PWx4bRluDt1NGqLQ8DbaETYJtITM7mtRPUEx0wX79uyJRMr0qL6QFv10msUpwfC7PPgzDtHY5ZOBx9AlEvCRhl/9yZoRBUzQddv/3GEOdwZOLDpkrboshxSXxF9Dx9UEvaIZbMT3nCUdOjUtqkRu7eRyRkrZIj3valUpYq6UkQDwIkT2fCPXVlS/iBZ9ew7njq0XWbowbZXnrA+pJoJVDhCeT46U8qJkj9Snf4jUzHoE05JO60fj0j4O+wC8mgc4rSZMaJr7sloogZgqjmJtPyo9AdaquPf3NqRylA5o8lXJR/PY3ky5so4BzQiOm50o2Dlg5UF3fhyp3W0r4kNwTNy0N7/HaIjb/ppX5AiQGYTXCWYwl3ClxxGy8wvkDnxDjKB3Y1ghj+iU2JZF6VWf/fGnZlz7e54wGL3Umnt25sTR4UmmrAX2xMjU2Gcs1QJR9i8aAE81R9j4ZuVqiIK9jBW0g8oC/LFFXnKwpm0FcPZDYpELjUYWJI4SW8NdrT2YfQQ2Et26E/LuO+7LT/6YDCMJF+WMB6+qcK5OJj849B1oygQUYJsyOgwwnafROLjIXiTdOBiXFPGLyrDXbgMUfoCbxz8/FtI+KgK1ySRiFPbfw4HGLcmK31pq0wl7x8N0fkeoj2ME3kt70zs49Qp/LJZpyG+9IGdnf+gAfQ=
 sudo: required
 install:
-  - gem install coveralls-lcov
+- gem install coveralls
+- gem install coveralls-lcov
 addons:
-  postgresql: "11"
+  postgresql: '11'
 services:
-  - docker
-  - postgresql
+- docker
+- postgresql
 before_script:
-  - docker-compose up -d
-  - pub get
-script: ./tools/travis.sh
+- pub global activate coverage
+- docker-compose up -d
+- pub get
+script: "./tools/travis.sh"
 after_success:
-  - coveralls-lcov var/lcov.info
+- coveralls-lcov var/lcov.info
 after_script:
-  - docker-compose down
+- docker-compose down
 branches:
   only:
-    - master
+  - master
 cache:
   directories:
-    - $HOME/.pub-cache
+  - "$HOME/.pub-cache"
