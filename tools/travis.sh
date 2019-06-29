@@ -47,4 +47,6 @@ if [ "$COVERALLS_TOKEN" ] && [ "$TRAVIS_DART_VERSION" = "dev" ]; then
     --out=var/lcov.info \
     --packages=.packages \
     --report-on=lib
+
+  genhtml --output-directory=var/html var/lcov.info
 fi
