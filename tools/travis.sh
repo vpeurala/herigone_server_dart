@@ -26,7 +26,7 @@ fi
 
 # Run the tests.
 echo "Running tests..."
-pub run test --reporter expanded
+pub run test --concurrency=1 --reporter expanded
 
 # Gather coverage and upload to Coveralls.
 if [ "$COVERALLS_TOKEN" ] && [ "$TRAVIS_DART_VERSION" = "dev" ]; then
