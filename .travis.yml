@@ -3,6 +3,7 @@ sudo: required
 addons:
   postgresql: "11"
 services:
+  - docker
   - postgresql
 before_script:
   - docker-compose up -d
