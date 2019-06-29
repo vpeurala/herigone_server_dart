@@ -21,6 +21,13 @@ Future main() async {
     await harness.resetData();
   });
 
+  test("Can get all users", () async {
+    final response = await agents[0].get("/users");
+    expect(response, hasStatus(200));
+    print("response: ${response.headers.contentLength}");
+    expect(response.headers.contentLength, equals(99));
+  });
+
   test("Can get user with valid credentials", () async {
     final response = await agents[0].get("/users/1");
     expect(
