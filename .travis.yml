@@ -26,6 +26,10 @@ before_script:
 - pub global activate coverage
 - docker-compose up -d
 - pub get
+- psql -c 'create database herigone_test;' -U postgres
+- psql -c 'create user herigone_test with createdb;' -U postgres
+- psql -c "alter user herigone_test with password 'kusipojat';" -U postgres
+- psql -c 'grant all on database herigone_test to herigone_test;' -U postgres
 script: "./tools/travis.sh"
 after_success:
 - coveralls-lcov var/lcov.info

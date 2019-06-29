@@ -1,6 +1,6 @@
 database:
- username: postgres
+ username: herigone_test
  password: kusipojat
  host: localhost
  port: 5432
- databaseName: postgres
+ databaseName: herigone_test
