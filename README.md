@@ -1,7 +1,7 @@
 # herigone_server_dart
 
 [![Build Status](https://travis-ci.org/vpeurala/herigone_server_dart.svg?branch=master)](https://travis-ci.org/vpeurala/herigone_server_dart)
-[![Coverage Status](https://coveralls.io/repos/github/vpeurala/herigone_server_dart/badge.svg?branch=master)](https://coveralls.io/github/vpeurala/herigone_server_dart?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/vpeurala/herigone_server_dart/badge.svg?branch=master&service=github)](https://coveralls.io/github/vpeurala/herigone_server_dart?branch=master&service=github)
 
 ## Database
 
